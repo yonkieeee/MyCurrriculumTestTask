@@ -1,0 +1,11 @@
+services:
+  user_api:
+    container_name: "curriculum_api"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_OPTS=-Xmx256m -Xms128m
+    restart: unless-stopped
