@@ -1,12 +1,14 @@
-FROM openjdk:21-slim as build
+FROM gradle:8.7-jdk21 AS build
 
-RUN apt-get update && apt-get install -y maven
+COPY build.gradle* settings.gradle* /home/gradle/project/
+WORKDIR /home/gradle/project
+RUN gradle build --no-daemon || return 0
 
 WORKDIR /curriculum
 
-COPY * *
+COPY . /home/gradle/project
 
-RUN mvn clean package -DskipTests
+RUN gradle clean build --no-daemon
 
 FROM eclipse-temurin:21-jre-jammy
 
