@@ -10,7 +10,7 @@ public class MyCurrriculumTestTaskApplication {
     public static void main(String[] args) {
 
         Dotenv dotenv = Dotenv.configure()
-                .directory("src/main/resources")
+                .ignoreIfMissing()
                 .load();
         System.setProperty("DATABASE_URL", dotenv.get("DATABASE_URL"));
         System.setProperty("DATABASE_OWNER", dotenv.get("DATABASE_OWNER"));
