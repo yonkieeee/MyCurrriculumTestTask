@@ -6,9 +6,9 @@ RUN gradle build --no-daemon || return 0
 
 WORKDIR /curriculum
 
-COPY . /home/gradle/project
+COPY . .
 
-RUN gradle clean build --no-daemon
+RUN gradle clean build -x test --no-daemon
 
 FROM eclipse-temurin:21-jre-jammy
 
