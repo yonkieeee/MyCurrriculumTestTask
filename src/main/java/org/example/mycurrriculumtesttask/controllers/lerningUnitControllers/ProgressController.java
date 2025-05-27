@@ -42,7 +42,7 @@ public class ProgressController {
         }
     }
 
-    @PostMapping("/complete-lesson")
+    @PutMapping("/complete-lesson")
     public ResponseEntity<?> completeLesson(@RequestParam(value = "lesson-id") String lessonProgressId
     , Authentication authentication) {
         try {
@@ -60,7 +60,7 @@ public class ProgressController {
         }
     }
 
-    @PostMapping("/get-progress")
+    @GetMapping("/get-progress")
     public ResponseEntity<?> getProgress(Authentication authentication) {
         try{
             String userId = String.valueOf(jwtUtil.getIdFromJwt(authentication.getDetails().toString()));
