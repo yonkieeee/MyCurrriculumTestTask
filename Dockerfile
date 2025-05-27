@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-COPY .env /app/.env
+COPY src/main/resources/.env /app/src/main/resources/.env
 
 RUN gradle clean build -x test --no-daemon
 
