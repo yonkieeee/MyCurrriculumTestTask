@@ -4,9 +4,7 @@ RUN apt-get update && apt-get install -y maven
 
 WORKDIR /curriculum
 
-COPY pom.xml /curriculum/
-
-COPY /src/** /curriculum/src
+COPY * *
 
 RUN mvn clean package -DskipTests
 
