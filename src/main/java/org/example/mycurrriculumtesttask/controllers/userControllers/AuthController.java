@@ -43,7 +43,7 @@ public class AuthController {
         this.authenticationManager = authenticationManager;
     }
 
-    @PostMapping("/register")
+        @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterDto registerDto, HttpServletResponse response) {
         try{
             if(userRepository.existsByUsername(registerDto.username())){
