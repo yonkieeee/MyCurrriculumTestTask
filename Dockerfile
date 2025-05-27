@@ -1,10 +1,6 @@
 FROM gradle:8.7-jdk21 AS build
 
-COPY build.gradle* settings.gradle* /home/gradle/project/
-WORKDIR /home/gradle/project
-RUN gradle build --no-daemon || return 0
-
-WORKDIR /curriculum
+WORKDIR /app
 
 COPY . .
 
@@ -12,6 +8,8 @@ RUN gradle clean build -x test --no-daemon
 
 FROM eclipse-temurin:21-jre-jammy
 
-COPY --from=build /curriculum/target/*.jar app.jar
+WORKDIR /app
+
+COPY --from=build /app/build/libs/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
