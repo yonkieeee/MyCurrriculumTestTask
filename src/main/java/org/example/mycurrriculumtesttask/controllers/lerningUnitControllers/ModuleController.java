@@ -24,7 +24,6 @@ public class ModuleController {
     private SubjectRepository subjectRepository;
 
 
-    @PreAuthorize("hasRole('TEACHER')")
     @GetMapping
     public ResponseEntity<?> getAllModules() {
         try{

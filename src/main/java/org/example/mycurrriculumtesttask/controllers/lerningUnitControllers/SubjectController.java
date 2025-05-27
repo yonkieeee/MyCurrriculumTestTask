@@ -19,8 +19,6 @@ public class SubjectController {
     @Autowired
     private SubjectRepository subjectRepository;
 
-
-    @PreAuthorize("hasRole('TEACHER')")
     @GetMapping
     public ResponseEntity<?> getAllSubjects() {
         try{

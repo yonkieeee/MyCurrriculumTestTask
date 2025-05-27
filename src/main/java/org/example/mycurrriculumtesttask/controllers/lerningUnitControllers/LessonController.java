@@ -23,7 +23,6 @@ public class LessonController {
     @Autowired
     private ModuleRepository moduleRepository;
 
-    @PreAuthorize("hasRole('TEACHER')")
     @GetMapping
     public ResponseEntity<?> getAllLessons() {
         try{
