@@ -20,7 +20,7 @@ public class SubjectController {
     private SubjectRepository subjectRepository;
 
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('TEACHER')")
     @GetMapping
     public ResponseEntity<?> getAllSubjects() {
         try{
@@ -30,7 +30,7 @@ public class SubjectController {
         }
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('TEACHER')")
     @PostMapping
     public ResponseEntity<?> addSubject(@RequestBody Subject subject) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

@@ -23,7 +23,7 @@ public class LessonController {
     @Autowired
     private ModuleRepository moduleRepository;
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('TEACHER')")
     @GetMapping
     public ResponseEntity<?> getAllLessons() {
         try{
@@ -33,7 +33,7 @@ public class LessonController {
         }
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('TEACHER')")
     @PostMapping
     public ResponseEntity<?> addModule(@RequestBody LessonRequestDTO dto) {
         try{

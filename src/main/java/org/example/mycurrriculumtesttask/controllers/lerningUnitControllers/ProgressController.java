@@ -28,7 +28,7 @@ public class ProgressController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('TEACHER')")
     @PostMapping
     public ResponseEntity<?> createProgressForUser(@RequestParam(value = "subject-id") String subjectId,
                                                    @RequestParam(value = "user-id") String userId) {

@@ -24,7 +24,7 @@ public class ModuleController {
     private SubjectRepository subjectRepository;
 
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('TEACHER')")
     @GetMapping
     public ResponseEntity<?> getAllModules() {
         try{
@@ -34,7 +34,7 @@ public class ModuleController {
         }
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('TEACHER')")
     @PostMapping
     public ResponseEntity<?> addModule(@RequestBody ModuleRequestDTO dto) {
         try{
