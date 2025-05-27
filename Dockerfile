@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . .
 
+COPY .env /app/.env
+
 RUN gradle clean build -x test --no-daemon
 
 FROM eclipse-temurin:21-jre-jammy
